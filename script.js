@@ -41,11 +41,6 @@ var qAndAList = [
   },
 ];
 
-// for (i = 0; i < qAndAList.length; i++) {
-//   console.log(qAndAList[i].q);
-//   console.log(qAndAList[i].a);
-//   console.log(qAndAList[i].choices);
-// }
 var score = 0;
 var startQuiz = document.querySelector("#startBtn");
 var questionText = document.getElementById("question");
@@ -63,10 +58,6 @@ function sendMessage() {
   alert("Time's Up!");
 }
 
-// function setNextQuestion() {
-//   questionFn(qAndAList[i].q);
-// }
-
 function setTime() {
   var timerInterval = setInterval(function () {
     secondsLeft--;
@@ -81,7 +72,6 @@ function setTime() {
     clearInterval(timerInterval);
   }
 }
-console.log(score);
 
 function questionFn() {
   questionText.innerText = qAndAList[0].q;
@@ -92,7 +82,7 @@ function questionFn() {
 
   answerButtonOne.onclick = function () {
     alert("Wrong");
-    secondsLeft - 10;
+    secondsLeft -= 10;
     question2Fn();
   };
   answerButtonTwo.onclick = function () {
@@ -102,12 +92,12 @@ function questionFn() {
   };
   answerButtonThree.onclick = function () {
     alert("Wrong");
-    secondsLeft - 10;
+    secondsLeft -= 10;
     question2Fn();
   };
   answerButtonFour.onclick = function () {
     alert("Wrong");
-    secondsLeft - 10;
+    secondsLeft -= 10;
     question2Fn();
   };
 }
@@ -121,12 +111,12 @@ function question2Fn() {
 
   answerButtonOne.onclick = function () {
     alert("Wrong");
-    secondsLeft - 10;
+    secondsLeft -= 10;
     question3Fn();
   };
   answerButtonTwo.onclick = function () {
     alert("Wrong");
-    secondsLeft - 10;
+    secondsLeft -= 10;
     question3Fn();
   };
   answerButtonThree.onclick = function () {
@@ -136,7 +126,7 @@ function question2Fn() {
   };
   answerButtonFour.onclick = function () {
     alert("Wrong");
-    secondsLeft - 10;
+    secondsLeft -= 10;
     question3Fn();
   };
 }
@@ -154,17 +144,17 @@ function question3Fn() {
   };
   answerButtonTwo.onclick = function () {
     alert("Wrong");
-    secondsLeft - 10;
+    secondsLeft -= 10;
     question4Fn();
   };
   answerButtonThree.onclick = function () {
     alert("Wrong");
-    secondsLeft - 10;
+    secondsLeft -= 10;
     question4Fn();
   };
   answerButtonFour.onclick = function () {
     alert("Wrong");
-    secondsLeft - 10;
+    secondsLeft -= 10;
     question4Fn();
   };
 }
@@ -177,17 +167,17 @@ function question4Fn() {
 
   answerButtonOne.onclick = function () {
     alert("Wrong");
-    secondsLeft - 10;
+    secondsLeft -= 10;
     question5Fn();
   };
   answerButtonTwo.onclick = function () {
     alert("Wrong");
-    secondsLeft - 10;
+    secondsLeft -= 10;
     question5Fn();
   };
   answerButtonThree.onclick = function () {
     alert("Wrong");
-    secondsLeft - 10;
+    secondsLeft -= 10;
     question5Fn();
   };
   answerButtonFour.onclick = function () {
@@ -205,7 +195,7 @@ function question5Fn() {
 
   answerButtonOne.onclick = function () {
     alert("Wrong");
-    secondsLeft - 10;
+    secondsLeft -= 10;
     finalTally();
   };
   answerButtonTwo.onclick = function () {
@@ -215,12 +205,12 @@ function question5Fn() {
   };
   answerButtonThree.onclick = function () {
     alert("Wrong");
-    secondsLeft - 10;
+    secondsLeft -= 10;
     finalTally();
   };
   answerButtonFour.onclick = function () {
     alert("Wrong");
-    secondsLeft - 10;
+    secondsLeft -= 10;
     finalTally();
   };
 }
@@ -229,7 +219,7 @@ function finalTally() {
     "Congratulations on finishing the quiz! Your score is " + score + "/5."
   );
 }
-
+//st
 //create Html page with start button
 //add div for "timerElement" so that it always shows
 //add array of questions and answers??
