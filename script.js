@@ -37,7 +37,7 @@ var qAndAList = [
   {
     q: "What is it called when we smash two or more stings together into one?",
     a: "concatenation",
-    choices: ["concretation", "concatenation", "concavenation", "convocation"],
+    choices: ["concretation", "concatenation", "concavenation", "convocation "],
   },
 ];
 
@@ -48,6 +48,11 @@ var qAndAList = [
 // }
 
 var startQuiz = document.querySelector("#startBtn");
+var questionText = document.getElementById("#question");
+var answerButtonOne = document.getElementById("#answerButton1");
+var answerButtonTwo = document.getElementById("#answerButton2");
+var answerButtonThree = document.getElementById("#answerButton3");
+var answerButtonFour = document.getElementById("#answerButton4");
 
 startQuiz.addEventListener("click", setTime);
 startQuiz.addEventListener("click", questionFn);
@@ -58,9 +63,9 @@ function sendMessage() {
   alert("Time's Up!");
 }
 
-function questionFn() {
-  ///////////////////////////////////////make questions go brrrr
-}
+// function setNextQuestion() {
+//   questionFn(qAndAList[i].q);
+// }
 
 function setTime() {
   var timerInterval = setInterval(function () {
@@ -76,6 +81,15 @@ function setTime() {
     clearInterval(timerInterval);
   }
 }
+console.log(qAndAList[0].q);
+
+function questionFn() {
+  questionText.innerHTML = qAndAList[0].q;
+  answerButtonOne.innerHTML = "qAndAList[0].choices[0]";
+  answerButtonTwo.innerHTML = "qAndAList[0].choices[1]";
+  answerButtonThree.innerHTML = "qAndAList[0].choices[2]";
+  answerButtonFour.innerHTML = "qAndAList[0].choices[3]";
+}
 
 //create Html page with start button
 //add div for "timerElement" so that it always shows
@@ -89,6 +103,6 @@ function setTime() {
 //if incorrect, secondsLeft-5
 //remove previous question and display new question and answer set
 //when countdown ends, alert ("Time Up!") and stop quiz loop and give final score/total
-//if questions finished before time left === 0, stop timer, alert final score and congrats for finishing text
+//if questions finished before time left === 0, stop timer, alert final score and congrats for finishing test
 //allow user to add initials and record score associated on leaderboard
 //
