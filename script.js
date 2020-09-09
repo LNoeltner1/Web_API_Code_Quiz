@@ -46,13 +46,13 @@ var qAndAList = [
 //   console.log(qAndAList[i].a);
 //   console.log(qAndAList[i].choices);
 // }
-
+var score = 0;
 var startQuiz = document.querySelector("#startBtn");
-var questionText = document.getElementById("#question");
-var answerButtonOne = document.getElementById("#answerButton1");
-var answerButtonTwo = document.getElementById("#answerButton2");
-var answerButtonThree = document.getElementById("#answerButton3");
-var answerButtonFour = document.getElementById("#answerButton4");
+var questionText = document.getElementById("question");
+var answerButtonOne = document.getElementById("answerButton1");
+var answerButtonTwo = document.getElementById("answerButton2");
+var answerButtonThree = document.getElementById("answerButton3");
+var answerButtonFour = document.getElementById("answerButton4");
 
 startQuiz.addEventListener("click", setTime);
 startQuiz.addEventListener("click", questionFn);
@@ -70,7 +70,7 @@ function sendMessage() {
 function setTime() {
   var timerInterval = setInterval(function () {
     secondsLeft--;
-    timerElement.textContent = secondsLeft + " seconds left!";
+    timerElement.textContent = secondsLeft + " seconds left! Score: " + score;
 
     if (secondsLeft === 0) {
       stopTime();
@@ -81,14 +81,153 @@ function setTime() {
     clearInterval(timerInterval);
   }
 }
-console.log(qAndAList[0].q);
+console.log(score);
 
 function questionFn() {
-  questionText.innerHTML = qAndAList[0].q;
-  answerButtonOne.innerHTML = "qAndAList[0].choices[0]";
-  answerButtonTwo.innerHTML = "qAndAList[0].choices[1]";
-  answerButtonThree.innerHTML = "qAndAList[0].choices[2]";
-  answerButtonFour.innerHTML = "qAndAList[0].choices[3]";
+  questionText.innerText = qAndAList[0].q;
+  answerButtonOne.innerHTML = qAndAList[0].choices[0];
+  answerButtonTwo.innerHTML = qAndAList[0].choices[1];
+  answerButtonThree.innerHTML = qAndAList[0].choices[2];
+  answerButtonFour.innerHTML = qAndAList[0].choices[3];
+
+  answerButtonOne.onclick = function () {
+    alert("Wrong");
+    secondsLeft - 10;
+    question2Fn();
+  };
+  answerButtonTwo.onclick = function () {
+    alert("Correct!");
+    score++;
+    question2Fn();
+  };
+  answerButtonThree.onclick = function () {
+    alert("Wrong");
+    secondsLeft - 10;
+    question2Fn();
+  };
+  answerButtonFour.onclick = function () {
+    alert("Wrong");
+    secondsLeft - 10;
+    question2Fn();
+  };
+}
+
+function question2Fn() {
+  questionText.innerText = qAndAList[1].q;
+  answerButtonOne.innerHTML = qAndAList[1].choices[0];
+  answerButtonTwo.innerHTML = qAndAList[1].choices[1];
+  answerButtonThree.innerHTML = qAndAList[1].choices[2];
+  answerButtonFour.innerHTML = qAndAList[1].choices[3];
+
+  answerButtonOne.onclick = function () {
+    alert("Wrong");
+    secondsLeft - 10;
+    question3Fn();
+  };
+  answerButtonTwo.onclick = function () {
+    alert("Wrong");
+    secondsLeft - 10;
+    question3Fn();
+  };
+  answerButtonThree.onclick = function () {
+    alert("Correct!");
+    score++;
+    question3Fn();
+  };
+  answerButtonFour.onclick = function () {
+    alert("Wrong");
+    secondsLeft - 10;
+    question3Fn();
+  };
+}
+function question3Fn() {
+  questionText.innerText = qAndAList[2].q;
+  answerButtonOne.innerHTML = qAndAList[2].choices[0];
+  answerButtonTwo.innerHTML = qAndAList[2].choices[1];
+  answerButtonThree.innerHTML = qAndAList[2].choices[2];
+  answerButtonFour.innerHTML = qAndAList[2].choices[3];
+
+  answerButtonOne.onclick = function () {
+    alert("Correct!");
+    score++;
+    question4Fn();
+  };
+  answerButtonTwo.onclick = function () {
+    alert("Wrong");
+    secondsLeft - 10;
+    question4Fn();
+  };
+  answerButtonThree.onclick = function () {
+    alert("Wrong");
+    secondsLeft - 10;
+    question4Fn();
+  };
+  answerButtonFour.onclick = function () {
+    alert("Wrong");
+    secondsLeft - 10;
+    question4Fn();
+  };
+}
+function question4Fn() {
+  questionText.innerText = qAndAList[3].q;
+  answerButtonOne.innerHTML = qAndAList[3].choices[0];
+  answerButtonTwo.innerHTML = qAndAList[3].choices[1];
+  answerButtonThree.innerHTML = qAndAList[3].choices[2];
+  answerButtonFour.innerHTML = qAndAList[3].choices[3];
+
+  answerButtonOne.onclick = function () {
+    alert("Wrong");
+    secondsLeft - 10;
+    question5Fn();
+  };
+  answerButtonTwo.onclick = function () {
+    alert("Wrong");
+    secondsLeft - 10;
+    question5Fn();
+  };
+  answerButtonThree.onclick = function () {
+    alert("Wrong");
+    secondsLeft - 10;
+    question5Fn();
+  };
+  answerButtonFour.onclick = function () {
+    alert("Correct!");
+    score++;
+    question5Fn();
+  };
+}
+function question5Fn() {
+  questionText.innerText = qAndAList[4].q;
+  answerButtonOne.innerHTML = qAndAList[4].choices[0];
+  answerButtonTwo.innerHTML = qAndAList[4].choices[1];
+  answerButtonThree.innerHTML = qAndAList[4].choices[2];
+  answerButtonFour.innerHTML = qAndAList[4].choices[3];
+
+  answerButtonOne.onclick = function () {
+    alert("Wrong");
+    secondsLeft - 10;
+    finalTally();
+  };
+  answerButtonTwo.onclick = function () {
+    alert("Correct");
+    score++;
+    finalTally();
+  };
+  answerButtonThree.onclick = function () {
+    alert("Wrong");
+    secondsLeft - 10;
+    finalTally();
+  };
+  answerButtonFour.onclick = function () {
+    alert("Wrong");
+    secondsLeft - 10;
+    finalTally();
+  };
+}
+function finalTally() {
+  alert(
+    "Congratulations on finishing the quiz! Your score is " + score + "/5."
+  );
 }
 
 //create Html page with start button
