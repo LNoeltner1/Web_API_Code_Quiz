@@ -1,43 +1,24 @@
-# Web_API_Code_Quiz# 04 Web APIs: Code Quiz
+## Web API Code Quiz
 
-As you proceed in your career as a web developer, you will probably be asked to complete a coding assessment, which is typically a combination of multiple-choice questions and interactive challenges. Build a timed code quiz with multiple-choice questions. This app will run in the browser and feature dynamically updated HTML and CSS powered by your JavaScript code. It will also feature a clean and polished user interface and be responsive, ensuring that it adapts to multiple screen sizes.
+In this project, I was tasked with greating a quiz that cycles between questions with JavaScript. We had to include a start button that would start a timer and display the first question, and upon answering the first question, the second question would take the place of the first question, and so on, until the questions have all been completed or the timer reaches 0. When the user aswers a question correctly, they will increase their score by 1. When the user answers a question incorrectly, 10 seconds will be subtracted from their remaining time. when the user finishes the quiz, a text box will appear and instructions on how to submit the user initials will appear in the question section. When the user types their initials into the text box and clicks the submit button, their initials and their score will appear below, separated by two dashes.
 
-## User Story
+In doing this project, I learned much more about how to use functions, traversing the DOM with dot notation, using object arrays and the scoping of varibles. I also learned how to dynamically change the current content of my page solely using JavaScript and a very basic HTML script.
 
-```
-AS A coding bootcamp student
-I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-SO THAT I can gauge my progress compared to my peers
-```
+## Known Issues
 
-## Acceptance Criteria
+1. When the user completes the quiz before time is up, they will recieve the final "congratulations" alert with their score once again when the timer runs out for a total of two identical alerts.
 
-```
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and score
-```
+2. The initials inputted by the user and their final score will appear below the text box when clicking "Submit", but their information will not remain after a page reload.
 
-The following animation demonstrates the application functionality:
+## Links
 
-![code quiz](./Assets/04-web-apis-homework-demo.gif)
+![GitHub Repository](https://github.com/LNoeltner1/Web_API_Code_Quiz)
+![Deployed Webpage]()
 
-### Review
+## Screenshot of Page
 
-You are required to submit the following for review:
+![Screenshot](Screenshot11.png)
 
-- The URL of the functional, deployed application.
+## License
 
-- The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
-
----
-
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+None. The project parameters were provided by my instructors at the Georgia Tech Coding Bootcamp in the form of a .gif showing the functionality of the quiz. Made in early September 2020.

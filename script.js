@@ -1,3 +1,5 @@
+// Object array of all questions and answers
+
 var qAndAList = [
   {
     q: "What is the value type of a .confirm message?",
@@ -41,13 +43,19 @@ var qAndAList = [
   },
 ];
 
+//global variables
+
 var score = 0;
 var startQuiz = document.querySelector("#startBtn");
 var questionText = document.getElementById("question");
+var textInput = document.getElementById("textBox");
 var answerButtonOne = document.getElementById("answerButton1");
 var answerButtonTwo = document.getElementById("answerButton2");
 var answerButtonThree = document.getElementById("answerButton3");
 var answerButtonFour = document.getElementById("answerButton4");
+
+// Upon clicking Start button, the function of the timer will begin and the function of cycling questions will begin.
+// When 0 seconds are remaining, the timer will stop and the site will alert the user, "Time's Up!"
 
 startQuiz.addEventListener("click", setTime);
 startQuiz.addEventListener("click", questionFn);
@@ -58,20 +66,35 @@ function sendMessage() {
   alert("Time's Up!");
 }
 
+// Sets timer to 60 seconds and will decrease by 1 every second until secondsLeft === 0
+
 function setTime() {
   var timerInterval = setInterval(function () {
     secondsLeft--;
     timerElement.textContent = secondsLeft + " seconds left! Score: " + score;
-
+    // hides start button when timer starts
+    startQuiz.style.opacity = 0;
+    // execute the following functions if secondsLeft === 0
     if (secondsLeft === 0) {
       stopTime();
       sendMessage();
+      finalTally();
     }
   }, 1000);
+  // Stops timer at 0
   function stopTime() {
     clearInterval(timerInterval);
   }
 }
+
+// Hides text box
+textInput.style.opacity = 0;
+
+// Question list //
+// For All: If user selects the correct answer, their score will increase by 1.
+// For All: If user selects the incorrect answer, the timer value will decrease by 10 seconds.
+
+// Question 1
 
 function questionFn() {
   questionText.innerText = qAndAList[0].q;
@@ -102,6 +125,8 @@ function questionFn() {
   };
 }
 
+// Question 2
+
 function question2Fn() {
   questionText.innerText = qAndAList[1].q;
   answerButtonOne.innerHTML = qAndAList[1].choices[0];
@@ -130,6 +155,9 @@ function question2Fn() {
     question3Fn();
   };
 }
+
+// Question 3
+
 function question3Fn() {
   questionText.innerText = qAndAList[2].q;
   answerButtonOne.innerHTML = qAndAList[2].choices[0];
@@ -158,6 +186,9 @@ function question3Fn() {
     question4Fn();
   };
 }
+
+// Question 4
+
 function question4Fn() {
   questionText.innerText = qAndAList[3].q;
   answerButtonOne.innerHTML = qAndAList[3].choices[0];
@@ -186,6 +217,9 @@ function question4Fn() {
     question5Fn();
   };
 }
+
+// Question 5
+
 function question5Fn() {
   questionText.innerText = qAndAList[4].q;
   answerButtonOne.innerHTML = qAndAList[4].choices[0];
@@ -214,24 +248,32 @@ function question5Fn() {
     finalTally();
   };
 }
+
+// Alerts user that Quiz is over and returns their score
+
 function finalTally() {
   alert(
     "Congratulations on finishing the quiz! Your score is " + score + "/5."
   );
+  saveInfo();
 }
-//st
-//create Html page with start button
-//add div for "timerElement" so that it always shows
-//add array of questions and answers??
-//list?? new text every time??
-//create countdown timer
-//add event listener to start button that starts countdown timer and shows first question
-//create loop that shows and styles each question and choices displayed
-//each answer must be a button??
-//when answer question, alert whether correct or not, give correct answer and give score/total
-//if incorrect, secondsLeft-5
-//remove previous question and display new question and answer set
-//when countdown ends, alert ("Time Up!") and stop quiz loop and give final score/total
-//if questions finished before time left === 0, stop timer, alert final score and congrats for finishing test
-//allow user to add initials and record score associated on leaderboard
-//
+
+// allows user to enter their initials into text box so that it may be displayed on the leaderboard after clicking submit
+
+function saveInfo() {
+  questionText.innerText = "Enter your initials below to save your score!";
+  textInput.style.opacity = 1;
+  answerButtonOne.innerHTML = "Submit";
+  answerButtonTwo.style.opacity = 0;
+  answerButtonThree.style.opacity = 0;
+  answerButtonFour.style.opacity = 0;
+
+  answerButtonOne.onclick = function () {
+    var leaderBoard = document.getElementById("recordScore");
+    var textInput = document.getElementById("textBox").value;
+    var userInput = "";
+    localStorage.setItem("textBox", JSON.stringify(textBox));
+    var userInput = JSON.parse(localStorage.getItem(textInput));
+    leaderBoard.innerText = textInput + "--" + score;
+  };
+}
