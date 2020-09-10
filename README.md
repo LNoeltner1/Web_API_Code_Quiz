@@ -13,7 +13,7 @@ In doing this project, I learned much more about how to use functions, traversin
 ## Links
 
 ![GitHub Repository](https://github.com/LNoeltner1/Web_API_Code_Quiz)
-![Deployed Webpage](https://lnoeltner1.github.io/Web_API_Code_Quiz/)
+![Deployed Website](https://lnoeltner1.github.io/Web_API_Code_Quiz/)
 
 ## Screenshot of Page
 
